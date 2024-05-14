@@ -12,7 +12,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
         value: ''
     });
 
-    const handleEdit = (id) => {
+    const handleEdit = (id) => {          // Function to handle editing a todo
         const todoToEdit = todos.find((todo) => todo.id === id);
         setEdit({ id, value: todoToEdit.text });
     };
@@ -34,7 +34,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
             <div className='icons'>
                 <RiCloseCircleLine className='delete-icon' onClick={() => removeTodo(todo.id)} />
                 <TiEdit className='update-icon' onClick={() => handleEdit(todo.id)} />
-                <input type="checkbox" checked={todo.isComplete} onChange={() => completeTodo(todo.id)} />
+                <input type="checkbox" checked={todo.isComplete} onChange={() => completeTodo(todo.id)} />  // By clicking on the checkbox the completed tasks are marked
             </div>
         </div>
     ));

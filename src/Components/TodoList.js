@@ -13,10 +13,13 @@ const TodoList = () => {
         }
     }, []);
 
+    // Save todos to local storage whenever there is a change
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos]);
 
+
+    // Function to add a new todo
     const addTodo = (todo) => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return;
@@ -30,7 +33,7 @@ const TodoList = () => {
         setTodos(updatedTodos);
     };
 
-    const updateTodo = (todoId, newValue) => {
+    const updateTodo = (todoId, newValue) => {    // Function to update a todo
         if (!newValue.text || /^\s*$/.test(newValue.text)) {
             return;
         }
@@ -39,7 +42,7 @@ const TodoList = () => {
         );
     };
 
-    const completeTodo = (id) => {
+    const completeTodo = (id) => {    // Function to mark a todo as complete
         const updatedTodos = todos.map((todo) => {
             if (todo.id === id) {
                 return { ...todo, isComplete: !todo.isComplete };
